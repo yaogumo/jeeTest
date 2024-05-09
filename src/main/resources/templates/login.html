@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="cn" xmlns:th="https://www.thymeleaf.org" ><!--命令空间-->
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<form action="/login" method="post"><!--提交的接口路径,请求方式为post-->
+  username:<input type="text" name="username" id="username"><br>
+  password:<input type="text" name="password" id="password"><br>
+  <input type="submit" value="提交">
+  <input type="button" value="ajax" onclick="login()">
+</form>
+<script>
+  const login=async ()=>{
+    const username=document.getElementById("username").value;//获取输入框中的用户名值
+    const password=document.getElementById("password").value;
+    const res=await fetch('/login_json',{
+      method:'POST',
+      headers:{
+        'Content-Type':'application/json'
+      },
+      body:JSON.stringify({username,password})//将用户名和密码以JSON格式字符串的形式放入请求体中
+      });
+    console.log(res);
+    const json=await res.json();
+    const err_code=json.err_code;
+    if(err_code===0){ //如果错误代码为0，将浏览器重定向到根目录('/')，即跳转到首页。
+      window.location='/'
+    }else if (err_code===1){
+      const msg=json.msg;
+      alert(msg);
+      document.getElementById("error").innerText=msg;
+    }
+  };
+</script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

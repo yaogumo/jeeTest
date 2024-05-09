@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="cn" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>传递对象</title>
+</head>
+<body>
+<form action="/login_obj" method="post" th:object="${user}"><!--thymeleaf语法-->
+  <input type="text" th:field="*{username}" placeholder="username"><br>
+  <input type="text" th:field="*{password}" placeholder="password"><br>
+  <input type="submit">
+
+</form>
+
+</body>
+</html>

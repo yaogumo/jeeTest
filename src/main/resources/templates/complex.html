@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="cn" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>输入复杂值页面</title>
+</head>
+<body>
+<form action="/complex" method="post"><!--将请求发送到/complex-->
+  int[]:<input type="text" name="data" placeholder="整型数组"><br>
+  List:<input type="text" name="list" placeholder="list"><br>
+  Locale:<input type="text" name="locale" placeholder="地区"><br>
+  date:<input type="date" name="date" placeholder="日期"><br>
+  <input type="submit">
+</form>
+
+</body>
+</html>

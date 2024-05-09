@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="cn" xmlns:th="https://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>分页查询</title>
+</head>
+<body>
+当前页码：<span th:text="${stus.number}"></span>
+是不是第一页：<span th:text="${stus.first}"></span>
+<table>
+  <tr th:each="stu:${stus}"><!--取值用th-->
+    <td th:text="${stuStat.even}"></td><!--判断是否为偶数行-->
+    <td th:text="${stu.id}"></td>
+    <td th:text="${stu.username}"></td>
+    <td th:text="${stu.java}"></td>
+    <td th:text="${stu.os}"></td>
+  </tr>
+</table>
+<a th:href="@{page(page=${stus.number-1})}" th:unless="${stus.first}">prev</a>
+<a th:href="@{page(page=${stus.number+1})}" th:unless="${stus.last}">next</a>
+</body>
+</html>

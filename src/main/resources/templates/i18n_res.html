@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="cn" xmlns:th="https://www.thymeleaf.org" >
+<head>
+  <meta charset="UTF-8">
+  <title>国际化页面</title>
+</head>
+<body>
+从资源文件取值:<span th:text="#{wel.msg}"></span>
+占位符国际化:<span th:text="#{wel.arg(${username},${password})}"></span>
+
+</body>
+</html>
